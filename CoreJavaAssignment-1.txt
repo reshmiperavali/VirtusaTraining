@@ -1,0 +1,109 @@
+1.10 differences between compiler and interpriter
+
+		Compiler				Interpreter
+1.Compiler takes Entire Program as input 	1.Interpreter takes single instruction as input
+2.Intermediate Object is generated		2.No Intermediate Object is generated
+3.Compilation is done before execution		3.Compilation and execution takes place simultaneously
+4.Memory requirement is more			4.It requires less memory
+5.Displays all errors after compilation		5.Displays error of each line one by one
+6.Its speed is faster				6.Speed is slow
+7.Error detection is difficult			7.Error detection is easy
+8.It takes lot of time to analyze the source code 8.It takes less time to analyze the source code
+9.It converts source code into object code      9.It does not convert source code into object code instead it scans line by line
+10.It is used by programming languages like C,C++ 10.It is used by programming languages like Ruby and python		
+
+2.Few details of Strongly typed and loosely typed
+
+In programming we call a language loosely typed when you don't have to explicitly specify types of variables and objects.
+A strongly typed language on the contrary wants types specified
+
+5.Write the simpliest code for If ,while ,switch
+
+package demo_one;
+public class SecondProgram {
+	public static void main(String[] args) {
+		int marks =67;
+		if(marks>=35)
+		{
+			System.out.println("Passed");
+		}
+		else
+		{
+			System.out.println("Fail");
+		}
+	}
+}
+
+package demo_one;
+public class SecondProgram {
+	public static void main(String[] args) {
+		int i=1;
+		while(i<=10)
+		{
+			System.out.println(i);
+			i++;
+		}
+	}
+}
+
+package demo_one;
+public class SecondProgram {
+	public static void main(String[] args) {
+		int number=20;
+		switch(number)
+		{
+		case 10: System.out.println("10");
+		break;
+		case 20: System.out.println("20");
+		break;
+		case 30: System.out.println("30");
+		break;
+		default:System.out.println("Not in 10,20 or 30");
+		
+		}
+	}
+}
+
+
+6.In a class create constructor and object use data members and member functions
+
+package demo_one;
+public class SecondProgram {
+	public int  additon(int a,int b)
+	{
+		int c=a+b;
+		return c;
+	}
+	public SecondProgram() {
+		super();	
+	}
+	public static void main(String[] args) {
+		SecondProgram s2=new SecondProgram();
+		System.out.println("Result is "+s2.additon(6,9));		
+	}
+}
+
+7.Create class ,create 2 constructors in a single class ,use both param and non param
+
+package demo_one;
+public class SecondProgram {
+	int a;
+	int b;
+	public SecondProgram() {
+		super();
+	}
+	public SecondProgram(int a, int b) {
+		super();
+		this.a = a;
+		this.b = b;
+	}
+	public static void main(String[] args) {
+		SecondProgram s1=new SecondProgram();
+		s1.a=3;
+		s1.b=5;
+		System.out.println("a="+s1.a+" b="+s1.b);
+		SecondProgram s2=new SecondProgram(6,9);
+		System.out.println("a="+s2.a+" b="+s2.b);	
+		
+	}
+}
