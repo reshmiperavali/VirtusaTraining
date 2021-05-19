@@ -1,0 +1,268 @@
+1.Parent class with all acess specifiers and getters and setters
+
+package HomeWork1;
+public class Book {
+	public String bookName;
+	protected int bookId;
+	private double bookPrice;
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public double getBookPrice() {
+		return bookPrice;
+	}
+	public void setBookPrice(double bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+}
+
+package HomeWork1;
+public class Library extends Book{
+	public static void main(String[] args) {
+		Book b1=new Book();
+		b1.setBookId(1);
+		b1.setBookName("Java");
+		b1.setBookPrice(567);
+		System.out.println("Book Id: "+b1.getBookId());
+		System.out.println("Book name: "+b1.getBookName());
+		System.out.println("Book Price: "+b1.getBookPrice());
+	}
+}
+2
+Single-level Inheritence :
+
+package SingleLevel;
+public class Book {
+	public String bookName;
+	protected int bookId;
+	private double bookPrice;
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public double getBookPrice() {
+		return bookPrice;
+	}
+	public void setBookPrice(double bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+}
+
+package SingleLevel;
+public class Library extends Book{
+	private String librarianName;
+	private int noOfDepts;
+	public String getLibrarianName() {
+		return librarianName;
+	}
+	public void setLibrarianName(String librarianName) {
+		this.librarianName = librarianName;
+	}
+	public int getNoOfDepts() {
+		return noOfDepts;
+	}
+	public void setNoOfDepts(int noOfDepts) {
+		this.noOfDepts = noOfDepts;
+	}
+	
+
+}
+
+package SingleLevel;
+public class MainClass {
+	public static void main(String[] args) {
+		Library l1=new Library();
+		l1.setBookId(1);
+		l1.setBookName("Java");
+		l1.setBookPrice(890);
+		l1.setLibrarianName("Raja");
+		System.out.println("Book details");
+		System.out.println("Book Id: "+l1.getBookId());
+		System.out.println("Book name: "+l1.getBookName());
+		System.out.println("Book Price: "+l1.getBookPrice());
+		System.out.println("Librarian Name: "+l1.getLibrarianName());
+	}
+	
+	
+}
+2.Multi-Level Inheritence:
+
+package MultiLevel;
+public class Library {
+	public void getLibrary()
+	{
+		System.out.println("Libraray Details...");
+	}
+}
+
+package MultiLevel;
+public class Book extends Library{
+	public void bookDetails()
+	{
+		System.out.println("Book Class....");
+	}
+}
+
+package MultiLevel;
+public class Author extends Book {
+	public void authorDetails()
+	{
+		System.out.println("Book has Author...");
+	}
+
+}
+
+package MultiLevel;
+public class MainClass {
+	public static void main(String[] args) {
+		Author a1=new Author();
+		a1.authorDetails();
+		a1.bookDetails();
+		a1.getLibrary();
+	}
+
+}
+
+3.Hierarchical Inheritence:
+
+package Heirarchical;
+public class Zoo {
+	private String zooName;
+	private String place;
+	
+	public String getZooName() {
+		return zooName;
+	}
+
+	public void setZooName(String zooName) {
+		this.zooName = zooName;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public void zooDetails()
+	{
+		System.out.println("Zoo Details are......");
+		
+	}
+
+}
+
+package Heirarchical;
+public class Tiger extends Zoo {
+	
+	public void tigerDetails()
+	{
+		System.out.println("Tiger Details...");
+	}
+
+}
+
+package Heirarchical;
+public class Lion extends Zoo{
+	public void lionDetails()
+	{
+		System.out.println("Lion Details are.....");
+	}
+	
+
+}
+
+package Heirarchical;
+public class MainClass {
+	public static void main(String[] args) {
+		Lion l1=new Lion();
+		Tiger t1=new Tiger();
+		l1.zooDetails();
+		l1.lionDetails();
+		t1.zooDetails();
+		t1.tigerDetails();
+	}
+
+}
+
+4.Multiple Inheritence
+
+package Multiple;
+public interface Lion {
+	void lionDetails();
+}
+
+package Multiple;
+public interface Tiger {
+	void tigerDetails();
+
+}
+
+package Multiple;
+public class Zoo implements Tiger,Lion{
+	@Override
+	public void lionDetails() {
+		System.out.println("Lion.......");	
+	}
+	@Override
+	public void tigerDetails() {
+		// TODO Auto-generated method stub
+		System.out.println("Tiger......");	
+	}
+}
+
+package Multiple;
+public class MainClass {
+	public static void main(String[] args) {
+		Zoo z1=new Zoo();
+		z1.tigerDetails();
+		z1.lionDetails();
+	}
+
+}
+
+5.Abstract Class
+
+package AbstractClass;
+public abstract class Book {
+	abstract void bookDetails();
+}
+
+package AbstractClass;
+public class Library  extends Book{
+	@Override
+	void bookDetails() {
+		// TODO Auto-generated method stub
+		System.out.println("Book Details are....");
+		
+	}
+
+}
+
+package AbstractClass;
+public class MainClass {
+	public static void main(String[] args) {
+		Library l1=new Library();
+		l1.bookDetails();
+	}
+
+}
