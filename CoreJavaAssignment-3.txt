@@ -1,0 +1,83 @@
+1.What is the difference between implementing Runnable and extending Thread
+	1.When we extend Thread class,we can't extend any other class even we require ,and when we implement Runnable,
+	we can save a space for our class to extend any other class in future or now.
+	2.When we extend Thread class,each of our thread creates unique object and associate with it,When we implements Runnable ,it shares the same object to multiple threads.
+	3.if we are extending Thread class just for the run() but you will get overhead of all other methods which came from Thread class,So if your goal is just write some code in the run() method for parallel execution then use Runnable instead of extending Thread class
+	4.Thread class has multiple methods including start() and run(),Runnable interface has only abstract method run().
+	5.When we use Thread class,More memory is required,When we use Runnable interface Less memory Required.
+2.Producer-Consumer Problem
+
+package HomeWork;
+public class ProducesConsumerTest {
+	public static void main(String[] args) {
+	      CubbyHole c = new CubbyHole();
+	      Producer p1 = new Producer(c, 1);
+	      Consumer c1 = new Consumer(c, 1);
+	      p1.start(); 
+	      c1.start();
+	   }
+}
+
+package HomeWork;
+public class CubbyHole {
+	 private int contents;
+	   private boolean available = false;
+	   
+	   public synchronized int get() {
+	      while (available == false) {
+	         try {
+	            wait();
+	         } catch (InterruptedException e) {}
+	      }
+	      available = false;
+	      notifyAll();
+	      return contents;
+	   }
+	   public synchronized void put(int value) {
+	      while (available == true) {
+	         try {
+	            wait();
+	         } catch (InterruptedException e) { } 
+	      }
+	      contents = value;
+	      available = true;
+	      notifyAll();
+	   }
+}
+
+package HomeWork;
+public class Producer extends Thread {
+	private CubbyHole cubbyhole;
+	   private int number;
+	   public Producer(CubbyHole c, int number) {
+	      cubbyhole = c;
+	      this.number = number;
+	   } 
+	   public void run() {
+	      for (int i = 0; i < 10; i++) {
+	         cubbyhole.put(i);
+	         System.out.println("Producer #" + this.number + " put: " + i);
+	         try {
+	            sleep((int)(Math.random() * 100));
+	         } catch (InterruptedException e) { }
+	      } 
+	   }
+}
+
+package HomeWork;
+public class Consumer extends Thread {
+	private CubbyHole cubbyhole;
+	   private int number;
+	   
+	   public Consumer(CubbyHole c, int number) {
+	      cubbyhole = c;
+	      this.number = number;
+	   }
+	   public void run() {
+	      int value = 0;
+	      for (int i = 0; i < 10; i++) {
+	         value = cubbyhole.get();
+	         System.out.println("Consumer #" + this.number + " got: " + value);
+	      }
+	   }
+}
