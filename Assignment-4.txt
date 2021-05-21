@@ -1,0 +1,149 @@
+1.ArrayList
+
+package HomeWork;
+import java.util.ArrayList;
+import java.util.Collections;
+public class Program1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> al = new ArrayList<>();
+		al.add(1);
+		al.add(2);
+		al.add(5);
+		al.add(4);
+		al.add(9);
+		al.add(6);
+		al.add(7);
+		al.add(3);
+		al.add(9);
+		
+		System.out.println(al);
+		//to accessing the element
+		System.out.println(al.get(3));
+		//sort the elements in the list
+		Collections.sort(al);
+		System.out.println(al);
+		//changing the element
+		al.set(1, 100);
+		System.out.println(al);
+		//used to trim the capacity of the arraylist
+		al.trimToSize();
+		System.out.println(al);
+		
+		System.out.println(al.remove(1));
+		//used to return the number of elements present in the list
+		al.size();
+		System.out.println(al);
+
+		//It will return the index to that element
+		System.out.println(al.indexOf(30));
+		//it added all the elements
+		al.addAll(al);
+		System.out.println(al);
+		//capacity of arraylist
+		al.ensureCapacity(5);
+		System.out.println(al);
+		//will get the last index value
+		System.out.println(al.lastIndexOf(9));
+		al.clear();
+		System.out.println(al);
+	}
+}
+
+2.LinkedList
+
+package HomeWork;
+import java.util.LinkedList;
+public class Program2 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList<String> l1 = new LinkedList<>();
+		l1.add("Reshmi");
+		l1.add("Reshma");
+		l1.add("Rashmi");
+		l1.add("Resh");
+		l1.add("Reshu");
+		System.out.println();
+		//insert  the element at given position
+		l1.add(1, "Hello");
+		System.out.println(l1);
+		//insert  the element at first position
+		l1.addFirst("Anusha");
+		System.out.println(l1);
+		//insert the elemnts at last
+		l1.addLast("Lalli");
+		System.out.println(l1);
+		//It will return first element
+		System.out.println(l1.getFirst());
+		//It will return last element
+		System.out.println(l1.getLast());
+		//It will return the element which is in the given index
+	    System.out.println(	l1.get(1));
+	  //it adds the elements at the last
+	    l1.offer("Jyosh");
+	    System.out.println(l1);
+	  //it adds the elements at first
+		l1.offerFirst("Vinaya");
+		System.out.println(l1);
+		//it retrieves the first elements of the list
+		System.out.println(l1.peek());
+		//it retrieves the first elements of the list
+		System.out.println(l1.peekFirst());
+		//it retrives the last elements of the list
+		System.out.println(l1.peekLast());
+		//it retrives and remove the first elements of the list
+		System.out.println(l1.poll());
+		//it retrives and remove the first elements of the list
+		System.out.println(l1.pollFirst());
+		//it retrives and remove the last elements of the list
+		System.out.println(l1.pollLast());
+		System.out.println(l1);
+		//It will return the size
+		l1.size();
+		System.out.println(l1);
+		//It will remove the element
+		l1.remove("Reshu");
+		System.out.println(l1);
+		//It will remove the first element
+		l1.removeFirst();
+		System.out.println(l1);
+		//It will remove the last element
+		l1.removeLast();
+		System.out.println(l1);
+		l1.clear();
+		System.out.println(l1);
+		
+		
+	}
+
+}
+3.PriorityQueue
+
+package HomeWork;
+import java.util.PriorityQueue;
+public class Program3 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		PriorityQueue<String> pq = new PriorityQueue<>();
+		pq.add("Reshmi");
+		pq.add("Reshma");
+		pq.add("Rashmi");
+		pq.add("Reshu");
+		pq.add("Resh");
+		pq.add("Jyosh");
+		System.out.println(pq);
+		pq.add("Anusha");
+		System.out.println(pq);
+		pq.offer("rima");
+		System.out.println(pq);
+		pq.poll();
+		System.out.println(pq);
+		System.out.println(pq.element());
+		System.out.println(pq.peek());
+		pq.clear();
+		System.out.println(pq);
+
+	}
+
+}
